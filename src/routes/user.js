@@ -24,7 +24,7 @@ router.get('/users/:id', (req,res)=>{
 router.put('/users/:id', (req,res)=>{
     const {id} = req.params;
     const {name,age,email} = req.body
-    userSchema.updateOne({_id:id},{$set: name,age,email}).then((data)=>res.json(data)).catch((error)=>res.json({message:error}));
+    userSchema.updateOne({_id:id},{$set: {name, age, email}}).then((data)=>res.json(data)).catch((error)=>res.json({message:error}));
 })
 
 //eliminar usuario
